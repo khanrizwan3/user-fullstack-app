@@ -37,7 +37,7 @@ export class UsersService {
   }
 
   async signup(email: string, name: string, password: string) {
-    this.logger.log(`Signup attempt for email: ${email}`); // Log signup attempt  
+    this.logger.log(`Signup attempt`); // Log signup attempt  
 
     // Validate the password before hashing  
     this.validatePassword(password);
@@ -46,7 +46,7 @@ export class UsersService {
     const user = new this.userModel({ email, name, password: hashedPassword });
     
     const savedUser = await user.save();
-    this.logger.log(`User created with email: ${email}`); // Log successful creation  
+    this.logger.log(`User created`); // Log successful creation  
     return savedUser;
   }
 
@@ -63,11 +63,11 @@ export class UsersService {
         { expiresIn: this.configService.get<string>('JWT_EXPIRY') },
       );
       
-      this.logger.log(`User signed in with email: ${email}`); // Log successful signin  
+      this.logger.log(`User sign in `); // Log successful signin  
       return { token };
     }
     
-    this.logger.warn(`Invalid credentials for email: ${email}`); // Log warning on invalid credentials  
+    this.logger.warn(`Invalid credentials`); // Log warning on invalid credentials  
     throw new UnauthorizedException('Invalid credentials'); // Use UnauthorizedException for clarity  
   }
 }

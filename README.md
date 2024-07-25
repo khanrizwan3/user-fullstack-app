@@ -1,6 +1,6 @@
 # My Fullstack User App
 
-This is a full-stack application featuring a React frontend and a NestJS backend. This README provides information on how to set up, run, and contribute to the project.
+This is a full-stack application featuring a React frontend and a NestJS backend. This README provides information on how to set up, run the project.
 
 ## Technologies
 

@@ -51,7 +51,7 @@ export class UsersService {
   }
 
   async signin(email: string, password: string) {
-    this.logger.log(`Signin attempt for email: ${email}`); // Log signin attempt
+    this.logger.log(`Signin attempt`); // Log signin attempt
     
     const user = await this.userModel.findOne({ email });
     if (user && await bcrypt.compare(password, user.password)) {
